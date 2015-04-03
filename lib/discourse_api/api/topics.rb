@@ -6,7 +6,7 @@ module DiscourseApi
       # :auto_track OPTIONAL boolean
       def create_topic(args)
         args = API.params(args)
-                  .required(:title, :raw)
+                  .required(:title, :raw, :tags, :stars)
                   .optional(:skip_validations, :category, :auto_track)
         post("/posts", args.to_h)
       end
@@ -21,8 +21,12 @@ module DiscourseApi
         response[:body]['topic_list']['topics']
       end
 
-      def rename_topic(topic_id, title)
-        put("/t/#{topic_id}.json", { topic_id: topic_id, title: title })
+      def rename_topic(topic_id, title, tags)
+        put("/t/#{topic_id}.json", { topic_id: topic_id, title: title, tags: tags })
+      end
+
+      def update_stars(topic_id, stars)
+        put("/t/#{topic_id}.json", { topic_id: topic_id, stars: stars })
       end
 
       def recategorize_topic(topic_id, category_id)
