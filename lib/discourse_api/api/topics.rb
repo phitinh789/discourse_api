@@ -29,6 +29,10 @@ module DiscourseApi
         put("/t/#{topic_id}.json", { topic_id: topic_id, stars: stars })
       end
 
+      def update_with_created_date(topic_id, created_date)
+        put("/t/#{topic_id}.json", { topic_id: topic_id, created_date: created_date })
+      end
+
       def recategorize_topic(topic_id, category_id)
         put("/t/#{topic_id}.json", { topic_id: topic_id, category_id: category_id })
       end
