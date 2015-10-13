@@ -106,6 +106,8 @@ module DiscourseApi
         #pass api_key and api_username on every request
         conn.params['api_key'] = api_key
         conn.params['api_username'] = api_username
+        conn.options[:timeout] = 2
+        conn.options[:open_timeout] = 2
       end
     end
 
