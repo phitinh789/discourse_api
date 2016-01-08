@@ -50,6 +50,10 @@ module DiscourseApi
       def delete_topic(id)
         delete("/t/#{id}.json")
       end
+
+      def update_content_topic(topic_id,content,tags)
+        put("/t/#{topic_id}.json", {topic_id: topic_id,excerpt: content,tags: tags})
+      end
     end
   end
 end
