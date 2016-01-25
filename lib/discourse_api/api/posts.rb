@@ -19,7 +19,7 @@ module DiscourseApi
       end
 
       def delete_post(id)
-        delete("/posts/#{id}", wiki: true)
+        delete("/posts/#{id}")
       end
 
       def edit_post(id, raw)
