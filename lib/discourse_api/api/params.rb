@@ -34,7 +34,7 @@ module DiscourseApi
 
         @required.each do |k|
           h[k] = @args[k]
-          raise ArgumentError.new("#{k} is required but not specified") unless h[k]
+          raise ArgumentError.new("#{k} is required but not specified") unless h[k].to_s.present?
         end
 
         h =
