@@ -6,7 +6,7 @@ module DiscourseApi
       # :auto_track OPTIONAL boolean
       def create_topic(args)
         args = API.params(args)
-                  .required(:title, :raw, :tags, :stars)
+                  .required(:title, :raw, :tags, :stars, :visible)
                   .optional(:skip_validations, :category, :auto_track)
         post("/posts", args.to_h)
       end
@@ -51,8 +51,8 @@ module DiscourseApi
         delete("/t/#{id}.json")
       end
 
-      def update_content_topic(topic_id,content,tags)
-        put("/t/#{topic_id}.json", {topic_id: topic_id,excerpt: content,tags: tags})
+      def update_content_topic(topic_id,content,tags, visible = true)
+        put("/t/#{topic_id}.json", {topic_id: topic_id,excerpt: content,tags: tags, visible: visible})
       end
     end
   end
