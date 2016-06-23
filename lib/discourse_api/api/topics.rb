@@ -6,8 +6,8 @@ module DiscourseApi
       # :auto_track OPTIONAL boolean
       def create_topic(args)
         args = API.params(args)
-                  .required(:title, :raw, :tags, :stars, :visible)
-                  .optional(:skip_validations, :category, :auto_track)
+                  .required(:title, :raw, :tags, :stars)
+                  .optional(:skip_validations, :category, :auto_track, :visible)
         post("/posts", args.to_h)
       end
 
