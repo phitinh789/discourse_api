@@ -125,7 +125,7 @@ module DiscourseApi
     def handle_error(response)
       case response.status
       when 403
-        raise DiscourseApi::UnauthenticatedError.new(response.env[:body])
+        Rails.logger.info "#{DiscourseApi::UnauthenticatedError.new(response.env[:body]).inspect}"
       end
     end
   end
