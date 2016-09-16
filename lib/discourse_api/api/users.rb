@@ -50,7 +50,11 @@ module DiscourseApi
       def log_out(id)
         post("/admin/users/#{id}/log_out")
       end
-
+      
+      def delete_user(id)
+        delete("/admin/users/#{id}")
+      end
+      
       def invite_admin(args={})
         post("/admin/users/invite_admin", args)
       end
