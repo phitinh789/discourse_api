@@ -52,7 +52,7 @@ module DiscourseApi
       end
       
       def delete_user(id)
-        delete("/admin/users/#{id}")
+        delete("/users/#{id}")
       end
       
       def invite_admin(args={})
