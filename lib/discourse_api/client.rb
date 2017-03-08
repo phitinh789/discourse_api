@@ -75,7 +75,7 @@ module DiscourseApi
       when 200
         response.body
       else
-        raise DiscourseApi::Error, response.body
+        Rails.logger.info "DiscourseApi::Error: #{response.body.inspect}"
       end
     end
 
